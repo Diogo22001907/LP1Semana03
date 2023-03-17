@@ -13,30 +13,39 @@ namespace PlayerPerks
         }
 
         static void Main(string[] args)
-        {
+        {            
             
             foreach (char c in args[0])
-            {
-                switch (c)
+            {   
+                if (!Enum.IsDefined(typeof(PlayerPerks), (int)c))
                 {
-                    case 'w':
-                        Console.WriteLine("WaterBreathing");
-                        break;
-                    case 's':
-                
-                        Console.WriteLine("Stealth");
-                        break;
-                    case 'a':
-                        Console.WriteLine("AutoHeal");
-                        break;
-                    case 'd':
-                        Console.WriteLine("DoubleJump");
-                        break;
-                    default:
-                        Console.WriteLine("Invalid perk: " + c);
-                        break;
+                    Console.WriteLine("Unknown perk: " + c);
+                    
+                    break;
                 }
+                else 
+                {
+                    switch (c)
+                    {
+                        case 'w':
+                            Console.WriteLine("WaterBreathing");
+                            break;
+                        case 'a':
+                            Console.WriteLine("AutoHeal");
+                            break;
+                        case 's':
+                            Console.WriteLine("Stealth");
+                            break;
+                        case 'd':
+                            Console.WriteLine("DoubleJump");
+                            break;
+                    }
+                }
+                
             }
         }
     }
 }
+
+
+
